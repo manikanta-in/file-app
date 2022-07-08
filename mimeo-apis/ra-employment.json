@@ -1,0 +1,146 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-employment",
+    "realEndpoint": "https://api-it.cloud.capitalone.com/customers/{customerReferenceId}/employment",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/customers/{customerReferenceId}/employment",
+    "method": "GET",
+    "prefix": "event-curator",
+    "serviceId": "b82d6dc0-7e37-4a0b-8bee-d27efeb6832e",
+    "injection": null,
+    "redirectionFlag": false
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"employment\": {\n    \"employmentStatus\": \"EMPLOYED\",\n    \"employerName\": \"Capital One\",\n    \"industry\": \"Finance\",\n    \"occupation\": \"Software Engineer\",\n    \"employmentEstablishedTimestamp\": \"2021-07-08T16:22:55.843Z\",\n    \"employmentConfirmationTimestamp\": \"2021-07-09T20:20:54.527Z\",\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"isEmploymentCustomerSpecified\": true\n  },\n  \"income\": {\n    \"personalIncome\": \"70000\",\n    \"additionalIncome\": \"20000\",\n    \"currencyCode\": \"USD\",\n    \"incomeEstablishedTimestamp\": \"2021-07-08T16:22:55.843Z\",\n    \"incomeConfirmationTimestamp\": \"2021-07-09T20:20:54.527Z\",\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"isIncomeCustomerSpecified\": true\n  },\n  \"monthlyHousingExpense\": {\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"monthlyHousingExpense\": \"6000\",\n    \"isMonthlyHousingExpenseCustomerSpecified\": true,\n    \"monthlyHousingExpenseEstablishedTimestamp\": \"2021-12-08T21:44:54.967Z\",\n    \"monthlyHousingExpenseConfirmationTimestamp\": \"2021-12-08T21:44:54.967Z\"\n  }\n}"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": "0",
+            "max": "0"
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Happy Path",
+        "rules": [
+          {
+            "contains": {
+              "path": "/customers/A9J97AUeQkapvRkVrRVSRA%253D%253D/employment"
+            }
+          },
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 1,
+        "responses": [
+          {
+            "statusCode": "200",
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"employment\": {\n    \"employmentStatus\": \"EMPLOYED\",\n    \"employerName\": \"Capital One\",\n    \"industry\": \"overrideEventStatus:<RETRY>\",\n    \"occupation\": \"Software Engineer\",\n    \"employmentEstablishedTimestamp\": \"2021-07-08T16:22:55.843Z\",\n    \"employmentConfirmationTimestamp\": \"2021-07-09T20:20:54.527Z\",\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"isEmploymentCustomerSpecified\": true\n  },\n  \"income\": {\n    \"personalIncome\": \"70000\",\n    \"additionalIncome\": \"20000\",\n    \"currencyCode\": \"USD\",\n    \"incomeEstablishedTimestamp\": \"2021-07-08T16:22:55.843Z\",\n    \"incomeConfirmationTimestamp\": \"2021-07-09T20:20:54.527Z\",\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"isIncomeCustomerSpecified\": true\n  },\n  \"monthlyHousingExpense\": {\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"monthlyHousingExpense\": \"6000\",\n    \"isMonthlyHousingExpenseCustomerSpecified\": true,\n    \"monthlyHousingExpenseEstablishedTimestamp\": \"2021-12-08T21:44:54.967Z\",\n    \"monthlyHousingExpenseConfirmationTimestamp\": \"2021-12-08T21:44:54.967Z\"\n  }\n}"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Retry Path",
+        "rules": [
+          {
+            "contains": {
+              "path": "/customers/23WWWkF0tN3qrYx5pJKtYg"
+            }
+          },
+          {
+            "contains": {
+              "path": "employment"
+            }
+          },
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 2,
+        "responses": [
+          {
+            "statusCode": "200",
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"employment\": {\n    \"employmentStatus\": \"EMPLOYED\",\n    \"employerName\": \"Capital One\",\n    \"industry\": \"overrideEventStatus:<SKIPPED>\",\n    \"occupation\": \"Software Engineer\",\n    \"employmentEstablishedTimestamp\": \"2021-07-08T16:22:55.843Z\",\n    \"employmentConfirmationTimestamp\": \"2021-07-09T20:20:54.527Z\",\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"isEmploymentCustomerSpecified\": true\n  },\n  \"income\": {\n    \"personalIncome\": \"70000\",\n    \"additionalIncome\": \"20000\",\n    \"currencyCode\": \"USD\",\n    \"incomeEstablishedTimestamp\": \"2021-07-08T16:22:55.843Z\",\n    \"incomeConfirmationTimestamp\": \"2021-07-09T20:20:54.527Z\",\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"isIncomeCustomerSpecified\": true\n  },\n  \"monthlyHousingExpense\": {\n    \"lastModifiedSourceSystem\": \"enterpriseapi-7faccbbfb1f841caab9d242d02f7e3f5\",\n    \"monthlyHousingExpense\": \"6000\",\n    \"isMonthlyHousingExpenseCustomerSpecified\": true,\n    \"monthlyHousingExpenseEstablishedTimestamp\": \"2021-12-08T21:44:54.967Z\",\n    \"monthlyHousingExpenseConfirmationTimestamp\": \"2021-12-08T21:44:54.967Z\"\n  }\n}"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Canada emp Path",
+        "rules": [
+          {
+            "contains": {
+              "path": "/customers/WkFGiGCYB"
+            }
+          },
+          {
+            "contains": {
+              "path": "employment"
+            }
+          },
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": null,
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.17.99",
+    "virtualServicePort": "9002",
+    "vsDelParam": 9002,
+    "virtualServiceHost": "10.203.17.136"
+  }
+}

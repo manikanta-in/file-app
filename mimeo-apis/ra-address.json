@@ -1,0 +1,258 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-addresses",
+    "realEndpoint": "https://api-it.cloud.capitalone.com/customers/{customerReferenceId}/customer-addresses",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/customers/{customerReferenceId}/customer-addresses",
+    "method": "GET",
+    "prefix": "event-curator",
+    "serviceId": "244fc7d5-68f4-4081-a16b-64990a344b7a",
+    "injection": null,
+    "redirectionFlag": true
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"address\": [\n    {\n      \"postalCode\": \"20171\",\n      \"countryCode\": \"USA\",\n      \"lastModifiedSourceSystem\": \"CUSTOMER_ELEVATION_PIPELINE_2020-08-30\",\n      \"addressEstablishedTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"isMismatched\": false,\n      \"addressType\": \"Mailing\",\n      \"addressStatus\": \"Active\",\n      \"isPrimaryMailing\": false,\n      \"customerSpecified\": true,\n      \"stateCode\": \"VA\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressConfirmationTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"addressLine1\": \"ISLAND\",\n      \"addressLine2\": \"DRIVE ST\",\n      \"cityName\": \"HERNDON\",\n      \"addressLine3\": \"overrideEventStatus:<ERROR>\",\n      \"addressLine4\": \"\"\n    }\n  ],\n  \"addressAccountReferences\": [\n    {\n      \"accountReferenceId\": \"GAQzBPwMhPxw48GvKfNUTnxSb5XInBEhktWZhABIxdM=\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressLabel\": [\n        \"Statements\"\n      ],\n      \"sourceCustomerId\": \"1956235\",\n      \"addressRelationshipEstablishedTimestamp\": \"2020-11-15T22:09:00.826Z\",\n      \"accountUseCode\": \"Personal\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true\n    }\n  ]\n}\n",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "One Mailing address, forcing ERROR status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "NUTDYepTjpbKObr"
+            }
+          },
+          {
+            "deepEquals": {
+              "query": {
+                "include": "Relationships"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 1,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"address\": [\n    {\n      \"addressEstablishedTimestamp\": \"2021-11-10T16:41:23.048Z\",\n      \"addressConfirmationTimestamp\": \"2021-11-10T16:41:23.048Z\",\n      \"lastModifiedSourceSystem\": \"enterpriseapi-96f794a7dad74cdb9dfaeaa54c2ca71c\",\n      \"addressId\": \"iFjyRJIoJ0BgvvBeAvkoAsVZnYXAoFq8XGnUUj3n3uktBmZpb7wd1YxJvPcvyeux\",\n      \"addressType\": \"Physical\",\n      \"addressLine1\": \"6369 Wilderness Park Dr\",\n      \"addressStatus\": \"Active\",\n      \"cityName\": \"Mackinaw City\",\n      \"customerSpecified\": true,\n      \"stateCode\": \"MI\",\n      \"postalCode\": \"497018702\",\n      \"countryCode\": \"USA\"\n    },\n    {\n      \"isPrimaryMailing\": false,\n      \"addressConfirmationTimestamp\": \"2021-04-12T17:37:33.303Z\",\n      \"lastModifiedSourceSystem\": \"enterpriseapi-96f794a7dad74cdb9dfaeaa54c2ca71c\",\n      \"addressId\": \"CpBPVS0E3qUJRLIoe7fqTCMCnZzVLRkx1J+JbjjvorhbBWOLxXQ3U31l0upBRp+l\",\n      \"addressType\": \"Mailing\",\n      \"addressLine1\": \"1129 Springfield Valley Rd\",\n      \"addressStatus\": \"Active\",\n      \"cityName\": \"Morrisville\",\n      \"customerSpecified\": true,\n      \"stateCode\": \"NC\",\n      \"postalCode\": \"27560\",\n      \"countryCode\": \"USA\"\n    },\n    {\n      \"addressEstablishedTimestamp\": \"2021-04-20T16:29:42.976Z\",\n      \"isPrimaryMailing\": true,\n      \"addressConfirmationTimestamp\": \"2021-04-20T16:29:42.976Z\",\n      \"lastModifiedSourceSystem\": \"enterpriseapi-96f794a7dad74cdb9dfaeaa54c2ca71c\",\n      \"addressId\": \"wzFov5fGL2tcA+z0hyOb7Bp1oLDLuG5IJ+SwCPFSCeqbeb8RO3oAIfD9uyw7a7d7\",\n      \"addressType\": \"Mailing\",\n      \"addressLine1\": \"6369 Wilderness Park Dr\",\n      \"addressStatus\": \"Active\",\n      \"cityName\": \"Mackinaw City\",\n      \"customerSpecified\": true,\n      \"stateCode\": \"MI\",\n      \"postalCode\": \"497018702\",\n      \"countryCode\": \"USA\"\n    },\n    {\n      \"isPrimaryMailing\": false,\n      \"addressConfirmationTimestamp\": \"2021-04-12T17:37:33.154Z\",\n      \"lastModifiedSourceSystem\": \"enterpriseapi-96f794a7dad74cdb9dfaeaa54c2ca71c\",\n      \"addressId\": \"n\\/T8PpPxU09aCRxLeWoEgjdjQYe5jaKSfeSJSjwVn1UHN5l60k2sUenq6V0WRwGN\",\n      \"addressType\": \"Mailing\",\n      \"addressLine1\": \"1505 Samos Island Drive\",\n      \"addressStatus\": \"Active\",\n      \"cityName\": \"Apex\",\n      \"customerSpecified\": true,\n      \"stateCode\": \"NC\",\n      \"postalCode\": \"27502\",\n      \"countryCode\": \"USA\"\n    },\n    {\n      \"addressEstablishedTimestamp\": \"2021-04-19T16:16:10.885Z\",\n      \"isPrimaryMailing\": false,\n      \"addressConfirmationTimestamp\": \"2021-04-19T16:16:10.885Z\",\n      \"lastModifiedSourceSystem\": \"enterpriseapi-96f794a7dad74cdb9dfaeaa54c2ca71c\",\n      \"addressId\": \"+bl9PGHyUnPqQCR5wl28mEz7DrOmIGCKgVVEt52AST006IwEEN1YuCJ+9LC9jx\\/h\",\n      \"addressType\": \"Mailing\",\n      \"addressLine1\": \"518 S Bruns Ave\",\n      \"addressStatus\": \"Active\",\n      \"cityName\": \"Charlotte\",\n      \"customerSpecified\": true,\n      \"stateCode\": \"NC\",\n      \"postalCode\": \"282084313\",\n      \"countryCode\": \"USA\"\n    }\n  ],\n  \"addressAccountReferences\": [\n    {\n      \"accountReferenceId\": \"x+GUsOH4tN23sGiHhYCfj8ShJfg21KtNgxo55e\\/j4+E=\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true,\n      \"accountUseCode\": \"Personal\",\n      \"addressId\": \"CpBPVS0E3qUJRLIoe7fqTCMCnZzVLRkx1J+JbjjvorhbBWOLxXQ3U31l0upBRp+l\",\n      \"addressLabel\": [\n        \"Statements\"\n      ],\n      \"addressRelationshipEstablishedTimestamp\": \"2021-09-16T14:05:11.716Z\",\n      \"sourceCustomerId\": \"2319025\"\n    },\n    {\n      \"accountReferenceId\": \"TRB2jD1NbgEarFRWLrrB6fFG8LLgWP0EH1P+gBU69go=\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true,\n      \"accountUseCode\": \"Personal\",\n      \"addressId\": \"wzFov5fGL2tcA+z0hyOb7Bp1oLDLuG5IJ+SwCPFSCeqbeb8RO3oAIfD9uyw7a7d7\",\n      \"addressLabel\": [\n        \"Correspondence\",\n        \"Statements\",\n        \"Card\"\n      ],\n      \"addressRelationshipEstablishedTimestamp\": \"2021-11-10T16:42:16.784Z\",\n      \"sourceCustomerId\": \"2225927\"\n    },\n    {\n      \"accountReferenceId\": \"TRB2jD1NbgEarFRWLrrB6XARBtIzBXiuQ\\/xHNleRcBM=\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true,\n      \"accountUseCode\": \"Personal\",\n      \"addressId\": \"wzFov5fGL2tcA+z0hyOb7Bp1oLDLuG5IJ+SwCPFSCeqbeb8RO3oAIfD9uyw7a7d7\",\n      \"addressLabel\": [\n        \"Correspondence\",\n        \"Statements\",\n        \"Card\"\n      ],\n      \"addressRelationshipEstablishedTimestamp\": \"2021-11-10T16:42:16.799Z\",\n      \"sourceCustomerId\": \"2225926\"\n    },\n    {\n      \"accountReferenceId\": \"x+GUsOH4tN23sGiHhYCfj8ShJfg21KtNgxo55e\\/j4+E=\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true,\n      \"accountUseCode\": \"Personal\",\n      \"addressId\": \"wzFov5fGL2tcA+z0hyOb7Bp1oLDLuG5IJ+SwCPFSCeqbeb8RO3oAIfD9uyw7a7d7\",\n      \"addressLabel\": [\n        \"Correspondence\",\n        \"Card\"\n      ],\n      \"addressRelationshipEstablishedTimestamp\": \"2021-09-16T14:05:11.700Z\",\n      \"sourceCustomerId\": \"2319025\"\n    }\n  ]\n}\n",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Happy Path with multiple Physical and Mailing addresses",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "deepEquals": {
+              "path": "/customers/A9J97AUeQkapvRkVrRVSRA%253D%253D/customer-addresses"
+            }
+          },
+          {
+            "deepEquals": {
+              "query": {
+                "include": "Relationships"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 2,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"address\": [\n    {\n      \"postalCode\": \"20171\",\n      \"countryCode\": \"USA\",\n      \"lastModifiedSourceSystem\": \"CUSTOMER_ELEVATION_PIPELINE_2020-08-30\",\n      \"addressEstablishedTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"isMismatched\": false,\n      \"addressType\": \"Mailing\",\n      \"addressStatus\": \"Active\",\n      \"isPrimaryMailing\": false,\n      \"customerSpecified\": true,\n      \"stateCode\": \"VA\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressConfirmationTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"addressLine1\": \"ISLAND\",\n      \"addressLine2\": \"DRIVE ST\",\n      \"cityName\": \"HERNDON\",\n      \"addressLine3\": \"overrideEventStatus:<RESCHEDULED>\",\n      \"addressLine4\": \"\"\n    }\n  ],\n  \"addressAccountReferences\": [\n    {\n      \"accountReferenceId\": \"GAQzBPwMhPxw48GvKfNUTnxSb5XInBEhktWZhABIxdM=\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressLabel\": [\n        \"Statements\"\n      ],\n      \"sourceCustomerId\": \"1956235\",\n      \"addressRelationshipEstablishedTimestamp\": \"2020-11-15T22:09:00.826Z\",\n      \"accountUseCode\": \"Personal\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true\n    }\n  ]\n}\n",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "One Mailing address, forcing RESCHEDULED status for HA Mode",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "/customers/c4l30ybia2m3EhIEtLlabg"
+            }
+          },
+          {
+            "contains": {
+              "path": "customer-addresses"
+            }
+          },
+          {
+            "deepEquals": {
+              "query": {
+                "include": "Relationships"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 3,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"address\": [\n    {\n      \"postalCode\": \"20171\",\n      \"countryCode\": \"USA\",\n      \"lastModifiedSourceSystem\": \"CUSTOMER_ELEVATION_PIPELINE_2020-08-30\",\n      \"addressEstablishedTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"isMismatched\": false,\n      \"addressType\": \"Mailing\",\n      \"addressStatus\": \"Active\",\n      \"isPrimaryMailing\": false,\n      \"customerSpecified\": true,\n      \"stateCode\": \"VA\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressConfirmationTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"addressLine1\": \"ISLAND\",\n      \"addressLine2\": \"DRIVE ST\",\n      \"cityName\": \"HERNDON\",\n      \"addressLine3\": \"overrideEventStatus:<RETRY>\",\n      \"addressLine4\": \"\"\n    }\n  ],\n  \"addressAccountReferences\": [\n    {\n      \"accountReferenceId\": \"GAQzBPwMhPxw48GvKfNUTnxSb5XInBEhktWZhABIxdM=\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressLabel\": [\n        \"Statements\"\n      ],\n      \"sourceCustomerId\": \"1956235\",\n      \"addressRelationshipEstablishedTimestamp\": \"2020-11-15T22:09:00.826Z\",\n      \"accountUseCode\": \"Personal\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true\n    }\n  ]\n}\n",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "One Mailing address, forcing RETRY status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "/customers/23WWWkF0tN3qrYx5pJKtYg"
+            }
+          },
+          {
+            "contains": {
+              "path": "customer-addresses"
+            }
+          },
+          {
+            "deepEquals": {
+              "query": {
+                "include": "Relationships"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 4,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"address\": [\n    {\n      \"postalCode\": \"20171\",\n      \"countryCode\": \"USA\",\n      \"lastModifiedSourceSystem\": \"CUSTOMER_ELEVATION_PIPELINE_2020-08-30\",\n      \"addressEstablishedTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"isMismatched\": false,\n      \"addressType\": \"Mailing\",\n      \"addressStatus\": \"Active\",\n      \"isPrimaryMailing\": false,\n      \"customerSpecified\": true,\n      \"stateCode\": \"VA\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressConfirmationTimestamp\": \"2020-11-15T22:06:58.877Z\",\n      \"addressLine1\": \"ISLAND\",\n      \"addressLine2\": \"DRIVE ST\",\n      \"cityName\": \"HERNDON\",\n      \"addressLine3\": \"overrideEventStatus:<SENT_RECON>\",\n      \"addressLine4\": \"\"\n    }\n  ],\n  \"addressAccountReferences\": [\n    {\n      \"accountReferenceId\": \"GAQzBPwMhPxw48GvKfNUTnxSb5XInBEhktWZhABIxdM=\",\n      \"addressId\": \"VRHW5Bog9zdt+1EzsoS95xBUpCsPhwob2PnZQIeahVCAxIuDcYUGas8r9NSUOGns\",\n      \"addressLabel\": [\n        \"Statements\"\n      ],\n      \"sourceCustomerId\": \"1956235\",\n      \"addressRelationshipEstablishedTimestamp\": \"2020-11-15T22:09:00.826Z\",\n      \"accountUseCode\": \"Personal\",\n      \"businessLine\": \"Card\",\n      \"customerSpecified\": true\n    }\n  ]\n}\n",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "One Mailing address, forcing SENT_RECON status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "/customers/BpawyZDMUz4lT"
+            }
+          },
+          {
+            "contains": {
+              "path": "customer-addresses"
+            }
+          },
+          {
+            "deepEquals": {
+              "query": {
+                "include": "Relationships"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": null,
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.17.99",
+    "virtualServicePort": "9006",
+    "vsDelParam": 9006
+  }
+}

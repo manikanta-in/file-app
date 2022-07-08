@@ -1,0 +1,138 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-taxid",
+    "realEndpoint": "https://api-it.cloud.capitalone.com/customers/{customerReferenceId}/tax-id",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/customers/{customerReferenceId}/tax-id",
+    "method": "GET",
+    "prefix": "event-curator",
+    "serviceId": "d76f8ef6-e565-4216-9435-e6f988afaae6",
+    "injection": null,
+    "redirectionFlag": true
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\"taxId\":\"s5WBksmAD\",\"taxIdType\":\"SSN\",\"lastFourTaxId\":\"0459\",\"taxIdEstablishedTimestamp\":\"2019-12-19T18:58:13.755Z\",\"taxIdConfirmationTimestamp\":\"2019-12-19T18:58:13.755Z\",\"lastModifiedSourceSystem\":\"CUSTOMER_ELEVATION_SDP_CONSUMER\"}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Happy Path, normal name update",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "23WWWkF0tN3qrYx5pJKtYg"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 1,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\"taxId\":\"s5WBksmAD\",\"taxIdType\":\"SSN\",\"lastFourTaxId\":\"0459\",\"taxIdEstablishedTimestamp\":\"2019-12-19T18:58:13.755Z\",\"taxIdConfirmationTimestamp\":\"2019-12-19T18:58:13.755Z\",\"lastModifiedSourceSystem\":\"CUSTOMER_ELEVATION_SDP_CONSUMER\"}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Forcing RETRY status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "A9J97AUeQkapvRkVrRVSRA%3D%3D"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 2,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\"taxId\":\"overrideEventStatus:<ERROR>\",\"taxIdType\":\"SSN\",\"lastFourTaxId\":\"0459\",\"taxIdEstablishedTimestamp\":\"2019-12-19T18:58:13.755Z\",\"taxIdConfirmationTimestamp\":\"2019-12-19T18:58:13.755Z\",\"lastModifiedSourceSystem\":\"CUSTOMER_ELEVATION_SDP_CONSUMER\"}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Forcing ERROR status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "NUTDYepTjpbKObr9dUeYIg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": null,
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.21.87",
+    "virtualServicePort": "9000",
+    "vsDelParam": 9000
+  }
+}

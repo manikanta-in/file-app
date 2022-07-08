@@ -1,0 +1,138 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-name",
+    "realEndpoint": "https://api-it.cloud.capitalone.com/customers/{customerReferenceId}/name",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/customers/{customerReferenceId}/name",
+    "method": "GET",
+    "prefix": "event-curator",
+    "serviceId": "df30a037-5c29-42bb-a998-b766156a6ffc",
+    "injection": null,
+    "redirectionFlag": true
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"customerName\": {\n    \"firstName\": \"Tony\",\n    \"middleName\": \"H\",\n    \"lastName\": \"Stark\",\n    \"suffix\": \"II\",\n    \"fullName\": \"Tony H Stark II\"\n  },\n  \"isNameCustomerSpecified\": true,\n  \"isNameMismatched\": true,\n  \"nameEstablishedTimestamp\": \"2021-11-23T21:45:28.782Z\",\n  \"nameConfirmationTimestamp\": \"2021-11-23T21:45:28.782Z\"\n}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Happy Path, normal name update",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "NUTDYepTjpbKObr"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 1,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"customerName\": {\n    \"firstName\": \"Tony\",\n    \"middleName\": \"H\",\n    \"lastName\": \"Stark\",\n    \"suffix\": \"overrideEventStatus:<RETRY>\",\n    \"fullName\": \"Tony H Stark II\"\n  },\n  \"isNameCustomerSpecified\": true,\n  \"isNameMismatched\": true,\n  \"nameEstablishedTimestamp\": \"2021-11-23T21:45:28.782Z\",\n  \"nameConfirmationTimestamp\": \"2021-11-23T21:45:28.782Z\"\n}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Forcing RETRY status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "A9J97AUeQkapvRkV"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 2,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\n  \"customerName\": {\n    \"firstName\": \"Tony\",\n    \"middleName\": \"H\",\n    \"lastName\": \"Stark\",\n    \"suffix\": \"overrideEventStatus:<ERROR>\",\n    \"fullName\": \"Tony H Stark II\"\n  },\n  \"isNameCustomerSpecified\": true,\n  \"isNameMismatched\": true,\n  \"nameEstablishedTimestamp\": \"2021-11-23T21:45:28.782Z\",\n  \"nameConfirmationTimestamp\": \"2021-11-23T21:45:28.782Z\"\n}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Forcing ERROR status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "/customers/c4l30ybia2m3EhIEtLlabg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": null,
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.17.99",
+    "virtualServicePort": "9006",
+    "vsDelParam": 9006
+  }
+}

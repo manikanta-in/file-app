@@ -1,0 +1,138 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-dob",
+    "realEndpoint": "https://api-it.cloud.capitalone.com/customers/{customerReferenceId}/date-of-birth",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/customers/{customerReferenceId}/date-of-birth",
+    "method": "GET",
+    "prefix": "event-curator",
+    "serviceId": "707408ff-7d1c-4931-befe-cc94f1f526af",
+    "injection": null,
+    "redirectionFlag": true
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\"dateOfBirth\":\"1965-02-24\",\"dateOfBirthEstablishedTimestamp\":\"2019-12-19T18:58:13.755Z\",\"dateOfBirthConfirmationTimestamp\":\"2019-12-19T18:58:13.755Z\",\"dateOfBirthVerificationClaims\":[]}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Happy Path, normal name update",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "23WWWkF0tN3qrYx5pJKtYg"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 1,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\"dateOfBirth\":\"1965-02-24\",\"dateOfBirthEstablishedTimestamp\":\"2019-12-19T18:58:13.755Z\",\"dateOfBirthConfirmationTimestamp\":\"2019-12-19T18:58:13.755Z\",\"dateOfBirthVerificationClaims\":[]}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Forcing RETRY status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "A9J97AUeQkapvRkVrRVSRA%3D%3D"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 2,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1",
+              "x-apigw-key": "CapiOne-IT-INT"
+            },
+            "body": "{\"dateOfBirth\":\"overrideEventStatus:<ERROR>\",\"dateOfBirthEstablishedTimestamp\":\"2019-12-19T18:58:13.755Z\",\"dateOfBirthConfirmationTimestamp\":\"2019-12-19T18:58:13.755Z\",\"dateOfBirthVerificationClaims\":[]}",
+            "_mode": "text"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Forcing ERROR status",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          },
+          {
+            "contains": {
+              "path": "NUTDYepTjpbKObr9dUeYIg"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": null,
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.17.45",
+    "virtualServicePort": "9007",
+    "vsDelParam": 9007
+  }
+}

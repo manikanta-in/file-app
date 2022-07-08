@@ -1,0 +1,49 @@
+{
+  "virtualServiceDeployList": [
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-address.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-name.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-citizenship.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-ais-common-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-taxid.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-dob.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-ais-addresses-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-tsys-addresses-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-tsys-name-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-tsys-taxid-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-tsys-dob-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-tsys-email-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-tsys-employment-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-cust-vault-income-lambda.json"
+    },
+    {
+      "virtualServiceInfoUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/ra-employment.json"
+    }
+  ]
+}

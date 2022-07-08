@@ -1,0 +1,66 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-cust-tsys-addresses-lambda",
+    "realEndpoint": "https://ra-cust-tsys-addresses-qa-lambda.clouddqt.capitalone.com/tsys/addresses",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/tsys/addresses",
+    "method": "POST",
+    "prefix": "event-curator",
+    "serviceId": "2a944b45-a13d-4676-bc6b-ac66134d189e",
+    "injection": {
+      "injectionUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/listener-injection.js",
+      "injectionType": "POST"
+    },
+    "redirectionFlag": true
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": 200,
+            "body": "OVERRIDE_THIS",
+            "headers": {}
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Simulated response, will be replaced by injected JS",
+        "rules": [
+          {
+            "deepEquals": {
+              "method": "POST"
+            }
+          },
+          {
+            "matches": {
+              "body": "(0zgNuDYe74JI01LiXhqsXCozcyJpPAIauT|Jf5pK1XJIstnjTgjSBIGKkOyJ89EFeKShPhe1Hqeky|mTy90gb0uQZMYsa8hulcLV0xQb5HZZojk8ai0ysd|V6QQjwrInWIcUmDlVfuPLNkOGvuZCRdeA5uDEx0wEpa0RSjCxnJRM4WAI|qHWWDj89CWJiTkhcMnHmhPUTHxyqevCBWOa5S6Z)"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": null,
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.17.7",
+    "virtualServicePort": "9015",
+    "vsDelParam": 9015
+  }
+}

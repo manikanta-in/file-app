@@ -1,0 +1,99 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-citizenship",
+    "realEndpoint": "https://api-it.cloud.capitalone.com/customers/{customerReferenceId}/citizenship",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/customers/{customerReferenceId}/citizenship",
+    "method": "GET",
+    "prefix": "event-curator",
+    "serviceId": "c1f98c31-ddb5-4f81-93a0-5f8a77b265f8",
+    "injection": null,
+    "redirectionFlag": true
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": "200",
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1"
+            },
+            "body": "{\n  \"citizenshipType\": \"US_CITIZEN\",\n  \"primaryCountryCode\": \"USA\",\n  \"secondaryCountryCode\": \"CAN\",\n  \"establishedTimestamp\": \"2019-12-19T18:58:13.755Z\",\n  \"confirmationTimestamp\": \"2019-12-19T18:59:13.755Z\"\n}"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Default Success Scenario",
+        "rules": [
+          {
+            "contains": {
+              "path": "NUTDYepTjpbKObr9dUeYIg%253D%253D"
+            }
+          },
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          }
+        ]
+      },
+      {
+        "scenarioIdx": 1,
+        "responses": [
+          {
+            "statusCode": "200",
+            "headers": {
+              "Content-Type": "application/json;v=1;charset=UTF-8",
+              "Accept": "application/json;v=1"
+            },
+            "body": "{\n  \"citizenshipType\": \"US_CITIZEN\",\n  \"primaryCountryCode\": \"USA\",\n  \"secondaryCountryCode\": \"overrideEventStatus:<RETRY>\",\n  \"establishedTimestamp\": \"2019-12-19T18:58:13.755Z\",\n  \"confirmationTimestamp\": \"2019-12-19T18:59:13.755Z\"\n}"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Force Retry Status",
+        "rules": [
+          {
+            "contains": {
+              "path": "c4l30ybia2m3EhIEtLlabg%253D%253D"
+            }
+          },
+          {
+            "deepEquals": {
+              "method": "GET"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": null,
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.19.67",
+    "virtualServicePort": "9019",
+    "vsDelParam": 9019
+  }
+}

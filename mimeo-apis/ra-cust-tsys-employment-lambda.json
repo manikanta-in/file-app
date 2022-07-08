@@ -1,0 +1,67 @@
+{
+  "virtualServiceInfo": {
+    "serviceName": "ra-cust-tsys-employment-lambda",
+    "realEndpoint": "https://ra-cust-tsys-employment-qa-lambda.clouddqt.capitalone.com/tsys/employment",
+    "virtualProtocol": "https",
+    "virtualEndpoint": "https://mimeo.clouddqt.capitalone.com:443/event-curator/tsys/employment",
+    "method": "POST",
+    "prefix": "event-curator",
+    "serviceId": "fb001c41-ea1d-4c2d-ac97-3e9fc60450a0",
+    "injection": {
+      "injectionUrl": "https://github.cloud.capitalone.com/raw/ASVCARDCORECUSTOMERSYNC/event-curator/master/event-curator-test/src/test/resources/mimeo-apis/listener-injection.js",
+      "injectionType": "POST"
+    },
+    "redirectionFlag": true
+  },
+  "certificateInfo": {
+    "certUrl": "https://github.kdc.capitalone.com/raw/mimeo/tryout-mimeo/master/Files/mspcert-sha2.jks",
+    "certType": "jks",
+    "certPass": "weblogic"
+  },
+  "deployerInfo": {
+    "userId": "a9640932-da5f-4d3e-91fe-5b8ac7f69c44",
+    "team": "TECHPANDAS"
+  },
+  "recordedData": {
+    "scenarios": [
+      {
+        "scenarioIdx": 0,
+        "responses": [
+          {
+            "statusCode": 200,
+            "headers": {},
+            "body": "OVERRIDE_THIS"
+          }
+        ],
+        "delayRange": [
+          {
+            "min": "0",
+            "max": "0"
+          }
+        ],
+        "requests": [],
+        "scenarioName": "Simulated response, will be replaced by injected JS",
+        "rules": [
+          {
+            "matches": {
+              "body": "(mTy90gb0uQZMYsa8hulcLV0xQb5HZZojk8ai0ysd|8swYaUJrTq6ghS00jJzGJtUTunStYNH9zaMTv8dhNoKcw|23WWWkF0tN3qrYx5pJKtYg|0zgNuDYe74JI01LiXhqsXCozcyJpPAIauT|A9J97AUeQkapvRkVrRVSRA|SDAXAeMcgeWPIY0W|Jf5pK1XJIstnjTgjSBIGKkOyJ89EFeKShPhe1Hqeky|qHWWDj89CWJiTkhcMnHmhPUTHxyqevCBWOa5S6Z|0zgNuDYe74JI01LiXhqsXCozcyJpPAIauT|V6QQjwrInWIcUmDlVfuPLNkOGvuZCRdeA5uDEx0wEpa0RSjCxnJRM4WAI)"
+            }
+          },
+          {
+            "deepEquals": {
+              "method": "POST"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "injectionObj": {},
+  "virtualAgentInfoForService": {
+    "toolType": "mbtest",
+    "virtualServiceHostName": "10.203.19.210",
+    "virtualServicePort": "9011",
+    "vsDelParam": 9011,
+    "virtualServiceHost": "10.203.17.136"
+  }
+}
